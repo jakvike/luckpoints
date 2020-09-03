@@ -1,0 +1,40 @@
+.luck-points {    
+    margin-top: 5px;
+    border: 1px solid var(--default-faint-color);;   
+}
+
+.luck-points > .luck-points-row {
+    margin-left: 5px;
+}
+.luck-points > .luck-points-row > .luck-points-action-items {
+    text-align: right;
+    font-size: 15px; 
+}
+
+.luck-points > .luck-points-row > .luck-points-action-items > .item-image {
+    margin-right: .5em;
+}
+
+.luck-points > .luck-points-row > .luck-points-action-items > .luck-points-input {
+    margin-bottom:5px;
+}
+
+.luck-points > .luck-points-row > .number-luck-points {    
+    font-size: 18px; 
+}
+
+.luck-points > .luck-points-title {
+    margin-left: 5px; 
+    flex: auto;
+    font-size: 13px;
+    font-weight: bold;
+    color: #4b4a44;
+    font-family: "Signika", sans-serif;
+}
+.luck-points > .luck-points-row > .luck-points-action-items > .luck-points-input > .hidden{
+    display: none;
+}
+
+.luck-points > .luck-points-row > .luck-points-action-items > .hidden{
+    display: none;
+}
