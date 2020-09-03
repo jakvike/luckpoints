@@ -1,8 +1,8 @@
 export class LuckPoints {
 	static async onRenderActorSheet(dndSheet, html) {
 		let luckPointSettings = CONFIG.luckPointSettings;
-        let actorSettings = dndSheet.object.getFlag('world', 'currentLuckPoints');
-        
+		let actorSettings = dndSheet.object.getFlag('world', 'currentLuckPoints');
+
 		if (actorSettings === undefined) {
 			await dndSheet.object.setFlag(
 				'world',
@@ -10,22 +10,24 @@ export class LuckPoints {
 				luckPointSettings.currentSettings.numberOfPoints
 			);
 			actorSettings = dndSheet.object.getFlag('world', 'currentLuckPoints');
-        }
-        else{
-            luckPointSettings.currentSettings.numberOfPoints = actorSettings;
+		} else {
+			luckPointSettings.currentSettings.numberOfPoints = actorSettings;
 		}
-		
 
 		const centerPane = html.find("ul[class='attributes flexrow']");
 		luckPointSettings.currentSettings.isGM = game.user.isGM;
-        const template = await renderTemplate(`${luckPointSettings.templatesPath}/luckpoints.html`, luckPointSettings);
-        let sheet = dndSheet.constructor.name;
-        let sheetIndex = sheet === "Tidy5eSheet" ? 0 : 1;
-        centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
-        
-		$('#lp-openConsume').on('click', async () => { this.openConsumeInput(); });
+		const template = await renderTemplate(`${luckPointSettings.templatesPath}/luckpoints.html`, luckPointSettings);
+		let sheet = dndSheet.constructor.name;
+		let sheetIndex = sheet === 'Tidy5eSheet' ? 0 : 1;
+		centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
+
+		$('#lp-openConsume').on('click', async () => {
+			this.openConsumeInput();
+		});
 		if (game.user.isGM) {
-			$('#lp-gmRoll').on('click', async () => { this.gmRoll(dndSheet); });
+			$('#lp-gmRoll').on('click', async () => {
+				this.gmRoll(dndSheet);
+			});
 		}
 		$('#lp-howManyPoints').keypress(async (e) => {
 			if (e.which == 13) {
@@ -35,10 +37,13 @@ export class LuckPoints {
 	}
 
 	static async gmRoll(dndSheet) {
-        let die = new Die(6);
-        let result = die.roll(1).result;
-        let newResult = result + dndSheet.object.getFlag('world', 'currentLuckPoints');
-        await dndSheet.object.setFlag('world', 'currentLuckPoints', newResult);
+		let roll = new Roll("1d6");
+		console.log(roll.parts);
+		roll.roll();
+		ChatMessage.create({content: `You just received ${roll.total} Luck Points!`, speaker: ChatMessage.getSpeaker({actor: dndSheet.actor})}, {chatBubble : true});
+		let result = roll.total;
+		let newResult = result + dndSheet.object.getFlag('world', 'currentLuckPoints');
+		await dndSheet.object.setFlag('world', 'currentLuckPoints', newResult);
 	}
 
 	static openConsumeInput() {
@@ -57,6 +62,7 @@ export class LuckPoints {
 		} else {
 			let newPoints = currentPoints - value;
 			await dndSheet.object.setFlag('world', 'currentLuckPoints', newPoints);
+			ChatMessage.create({content: `You just consumed ${value} Luck Points! You have ${newPoints} left.`, speaker: ChatMessage.getSpeaker({actor: dndSheet.actor})}, {chatBubble : true});
 		}
 	}
 }
