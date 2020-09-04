@@ -40,7 +40,7 @@ export class LuckPoints {
 		let roll = new Roll("1d6");
 		console.log(roll.parts);
 		roll.roll();
-		ChatMessage.create({content: `You just received ${roll.total} Luck Points!`, speaker: ChatMessage.getSpeaker({actor: dndSheet.actor})}, {chatBubble : true});
+		ChatMessage.create({content: `${dndSheet.entity.name} just received ${roll.total} Luck Points!`}, {chatBubble : true});
 		let result = roll.total;
 		let newResult = result + dndSheet.object.getFlag('world', 'currentLuckPoints');
 		await dndSheet.object.setFlag('world', 'currentLuckPoints', newResult);
@@ -62,7 +62,7 @@ export class LuckPoints {
 		} else {
 			let newPoints = currentPoints - value;
 			await dndSheet.object.setFlag('world', 'currentLuckPoints', newPoints);
-			ChatMessage.create({content: `You just consumed ${value} Luck Points! You have ${newPoints} left.`, speaker: ChatMessage.getSpeaker({actor: dndSheet.actor})}, {chatBubble : true});
+			ChatMessage.create({content: `${dndSheet.entity.name} just consumed ${value} Luck Points! ${dndSheet.entity.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
 	}
 }
