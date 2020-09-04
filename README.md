@@ -11,12 +11,6 @@
 <p>GM has permission to the die (d6)</p>
 <p>Players click the bell to consume luck point(s). After clicking the bell, an input box will open beneath the buttons.&nbsp; After entering the number of points to consume, hit the enter key on your keyboard.&nbsp;</p>
 <p>Both the GM roll and Player consumption will send a chat message.&nbsp;&nbsp;</p>
-<p>&nbsp;</p>
-<p>GM View:</p>
-<p><img src="https://foundryvtt.com/605d9143-0701-43fb-b6e4-c82be0195fa2" alt="" /></p>
-<p>&nbsp;</p>
-<p>Player View:</p>
-<p><img src="https://foundryvtt.com/a7a2c0b3-2503-48b4-958f-1eefff1046e4" alt="" /></p>
-<p><img src="https://foundryvtt.com/54518187-809d-4abd-b56d-f72bceb7c43b" alt="" /></p>
+
 <h3>NOTE:</h3>
 <p>This has only been tested and used with Tidy5eSheet and the default actor sheet, with DND5e.</p>
