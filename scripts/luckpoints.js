@@ -13,14 +13,23 @@ export class LuckPoints {
 		} else {
 			luckPointSettings.currentSettings.numberOfPoints = actorSettings;
 		}
-
-		const centerPane = html.find("ul[class='attributes flexrow']");
+		let sheet = dndSheet.constructor.name;
 		luckPointSettings.currentSettings.isGM = game.user.isGM;
 		const template = await renderTemplate(`${luckPointSettings.templatesPath}/luckpoints.html`, luckPointSettings);
-		let sheet = dndSheet.constructor.name;
-		let sheetIndex = sheet === 'Tidy5eSheet' ? 0 : 1;
-		centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
+		let sheetIndex = 0;
+		let centerPane = null;
 
+		if(sheet === "ActorSheet5eCharacter" || sheet === "Tidy5eSheet")
+		{
+			sheetIndex = (sheet === "Tidy5eSheet")? 0 : 1;
+			centerPane = html.find("ul[class='attributes flexrow']");
+		}
+		else if(sheet === "CompactBeyond5eSheet"){
+			centerPane = html.find("ul[class='attributes']");							
+		}
+
+		centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
+		
 		$('#lp-openConsume').on('click', async () => {
 			this.openConsumeInput();
 		});
