@@ -19,8 +19,8 @@ export class LuckPoints {
 		else if(sheet === "CompactBeyond5eSheet"){
 			centerPane = html.find("ul[class='attributes']");							
 		}
-
-		centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
+		
+		if(centerPane) centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
 		
 		$('.lpOpenConsume-' + dndSheet.appId).on('click', async () => {
 			this.openConsumeInput(dndSheet.appId);
