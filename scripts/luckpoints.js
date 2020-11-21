@@ -1,18 +1,9 @@
 export class LuckPoints {
 	static async onRenderActorSheet(dndSheet, html) {
 		let luckPointSettings = CONFIG.luckPointSettings;
-		let actorSettings = dndSheet.object.getFlag('world', 'currentLuckPoints');
-
-		if (actorSettings === undefined) {
-			await dndSheet.object.setFlag(
-				'world',
-				'currentLuckPoints',
-				luckPointSettings.currentSettings.numberOfPoints
-			);
-			actorSettings = dndSheet.object.getFlag('world', 'currentLuckPoints');
-		} else {
-			luckPointSettings.currentSettings.numberOfPoints = actorSettings;
-		}
+		let actorPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
+		luckPointSettings.currentSettings.numberOfPoints = actorPoints === undefined ? 0 : actorPoints;		
+		
 		let sheet = dndSheet.constructor.name;
 		luckPointSettings.currentSettings.isGM = game.user.isGM;
 		const template = await renderTemplate(`${luckPointSettings.templatesPath}/luckpoints.html`, luckPointSettings);
@@ -51,8 +42,10 @@ export class LuckPoints {
 		roll.roll();
 		ChatMessage.create({content: `${dndSheet.entity.name} just received ${roll.total} Luck Points!`}, {chatBubble : true});
 		let result = roll.total;
-		let newResult = result + dndSheet.object.getFlag('world', 'currentLuckPoints');
-		await dndSheet.object.setFlag('world', 'currentLuckPoints', newResult);
+		var currentPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
+
+		let newResult = result + (currentPoints === undefined ? 0 : currentPoints);
+		await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newResult);
 	}
 
 	static openConsumeInput() {
@@ -70,7 +63,7 @@ export class LuckPoints {
 			alert('You do not have enough luck points to consume.');
 		} else {
 			let newPoints = currentPoints - value;
-			await dndSheet.object.setFlag('world', 'currentLuckPoints', newPoints);
+			await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newPoints);
 			ChatMessage.create({content: `${dndSheet.entity.name} just consumed ${value} Luck Points! ${dndSheet.entity.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
 	}
