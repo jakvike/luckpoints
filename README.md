@@ -1,7 +1,13 @@
 <h3>Updates</h3>
-0.0.4 fixed console error when opening an NPC sheet.
-0.0.3 Fixed double entries when opening a PC sheet. 
-      Also fixed, GM with multiple sheets open.  Added unique class to each actor sheet. Thus points are not added to other opened actor sheets.  
+<p>
+  0.0.4
+ fixed console error when opening an NPC sheet.
+</p>
+<p>
+  0.0.3
+ Fixed double entries when opening a PC sheet.
+ Also fixed, GM with multiple sheets open. Added unique class to each actor sheet. Thus points are not added to other opened actor sheets.
+</p>
 
 
 <p>The module intends to add a variation to inspiration.&nbsp; Instead of having inspiration, I added luck points.&nbsp;&nbsp;</p>
