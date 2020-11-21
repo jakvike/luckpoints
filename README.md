@@ -9,7 +9,7 @@
  Also fixed, GM with multiple sheets open. Added unique class to each actor sheet. Thus points are not added to other opened actor sheets.
 </p>
 
-
+<h3>Module Description</h3>
 <p>The module intends to add a variation to inspiration.&nbsp; Instead of having inspiration, I added luck points.&nbsp;&nbsp;</p>
 <p>Luck points will be below resources, on the attributes tab, within the actor sheet.&nbsp;</p>
 <p>For my campaign, the intent for Luck Points is as follows:</p>
