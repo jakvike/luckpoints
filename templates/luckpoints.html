@@ -8,18 +8,18 @@
 		<span class="luck-points-action-items">
 			<a
 				id="lp-gmRoll"
-				class="item-image rollable{{#if currentSettings.isGM}}{{else}} hidden {{/if}} "
+				class="lpGmRoll-{{currentSettings.actorAppId}} item-image rollable{{#if currentSettings.isGM}}{{else}} hidden {{/if}} "
 				title="{{localized.gmRollTitle}}"
 			>
 				<i class="fa fa-dice-d6"></i>
 			</a>
-			<a id="lp-openConsume" class="item-image rollable" title="{{localized.playerConsumeTitle}}">
+			<a id="lp-openConsume" class="lpOpenConsume-{{currentSettings.actorAppId}} item-image" title="{{localized.playerConsumeTitle}}">
 				<i class="fa fa-bell"></i>
 			</a>
 			<div class="luck-points-input">
 				<input
 					id="lp-howManyPoints"
-					class="luck-points-consume hidden"
+					class="lpHowManyPoints-{{currentSettings.actorAppId}} luck-points-consume hidden"
 					placeholder="{{localized.consumePlaceholder}}"
 					type="text"
 					data-dtype="Number"

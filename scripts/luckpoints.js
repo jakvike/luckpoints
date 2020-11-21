@@ -6,6 +6,7 @@ export class LuckPoints {
 		
 		let sheet = dndSheet.constructor.name;
 		luckPointSettings.currentSettings.isGM = game.user.isGM;
+		luckPointSettings.currentSettings.actorAppId = dndSheet.appId;
 		const template = await renderTemplate(`${luckPointSettings.templatesPath}/luckpoints.html`, luckPointSettings);
 		let sheetIndex = 0;
 		let centerPane = null;
@@ -21,15 +22,15 @@ export class LuckPoints {
 
 		centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
 		
-		$('#lp-openConsume').on('click', async () => {
-			this.openConsumeInput();
+		$('.lpOpenConsume-' + dndSheet.appId).on('click', async () => {
+			this.openConsumeInput(dndSheet.appId);
 		});
 		if (game.user.isGM) {
-			$('#lp-gmRoll').on('click', async () => {
+			$('.lpGmRoll-' + dndSheet.appId).on('click', async () => {
 				this.gmRoll(dndSheet);
 			});
 		}
-		$('#lp-howManyPoints').keypress(async (e) => {
+		$('.lpHowManyPoints-' + dndSheet.appId).keypress(async (e) => {
 			if (e.which == 13) {
 				this.consumeLuckPoints(e.target, luckPointSettings.currentSettings.numberOfPoints, dndSheet);
 			}
@@ -48,18 +49,22 @@ export class LuckPoints {
 		await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newResult);
 	}
 
-	static openConsumeInput() {
+	static openConsumeInput(appId) {
 		let luckPointSettings = CONFIG.luckPointSettings;
 		if (luckPointSettings.currentSettings.numberOfPoints > 0) {
-			$('#lp-howManyPoints').toggle();
+			$('.lpHowManyPoints-' + appId).toggle();
 		} else {
 			alert('You do not have any luck points to consume.');
 		}
 	}
 
 	static async consumeLuckPoints(target, currentPoints, dndSheet) {
-		let value = target.value;
-		if (value > currentPoints) {
+		let parsedValue = parseInt(target.value, 10);
+		let value = (isNaN(parsedValue) || parsedValue === "")? 0 : parsedValue;
+		if(value === 0){
+			alert('Please enter the number of points you would like to use.')
+		}
+		else if (value > currentPoints) {
 			alert('You do not have enough luck points to consume.');
 		} else {
 			let newPoints = currentPoints - value;
