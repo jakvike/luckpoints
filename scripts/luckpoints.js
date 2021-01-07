@@ -11,13 +11,18 @@ export class LuckPoints {
 		let sheetIndex = 0;
 		let centerPane = null;
 
-		if(sheet === "ActorSheet5eCharacter" || sheet === "Tidy5eSheet")
-		{
-			sheetIndex = (sheet === "Tidy5eSheet")? 0 : 1;
-			centerPane = html.find("ul[class='attributes flexrow']");
-		}
-		else if(sheet === "CompactBeyond5eSheet"){
-			centerPane = html.find("ul[class='attributes']");							
+		switch (sheet) {
+			case "ActorSheet5eCharacter":
+				sheetIndex = 1;
+				centerPane = html.find("ul[class='attributes flexrow']");
+				break;
+			case "Tidy5eSheet":
+				sheetIndex = 0;
+				centerPane = html.find("div[class='favorites-target']");
+				break;
+			case "CompactBeyond5eSheet":
+				centerPane = html.find("ul[class='attributes']");
+				break;
 		}
 		
 		if(centerPane) centerPane[sheetIndex].insertAdjacentHTML('afterend', template);
