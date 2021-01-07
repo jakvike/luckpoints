@@ -1,5 +1,9 @@
 <h3>Updates</h3>
 <p>
+  0.0.6
+ Fixed and issue with multiple sheets open and consuming points between the two sheets. 
+</p>
+<p>
   0.0.5
  fixed for new Tidy5eSheet.
 </p>
