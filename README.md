@@ -1,5 +1,9 @@
 <h3>Updates</h3>
 <p>
+  0.0.5
+ fixed for new Tidy5eSheet.
+</p>
+<p>
   0.0.4
  fixed console error when opening an NPC sheet.
 </p>
