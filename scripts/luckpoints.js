@@ -37,7 +37,7 @@ export class LuckPoints {
 		}
 		$('.lpHowManyPoints-' + dndSheet.appId).keypress(async (e) => {
 			if (e.which == 13) {
-				this.consumeLuckPoints(e.target, luckPointSettings.currentSettings.numberOfPoints, dndSheet);
+				this.consumeLuckPoints(e.target, dndSheet);
 			}
 		});
 	}
@@ -63,16 +63,17 @@ export class LuckPoints {
 		}
 	}
 
-	static async consumeLuckPoints(target, currentPoints, dndSheet) {
+	static async consumeLuckPoints(target, dndSheet) {
+		let actorPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
 		let parsedValue = parseInt(target.value, 10);
 		let value = (isNaN(parsedValue) || parsedValue === "")? 0 : parsedValue;
 		if(value === 0){
 			alert('Please enter the number of points you would like to use.')
 		}
-		else if (value > currentPoints) {
+		else if (value > actorPoints) {
 			alert('You do not have enough luck points to consume.');
 		} else {
-			let newPoints = currentPoints - value;
+			let newPoints = actorPoints - value;
 			await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newPoints);
 			ChatMessage.create({content: `${dndSheet.entity.name} just consumed ${value} Luck Points! ${dndSheet.entity.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
