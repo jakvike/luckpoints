@@ -1,5 +1,10 @@
 <h3>Updates</h3>
 <p>
+  1.0.0
+  Added ability to roll with Dice-So-Nice
+  Added dialog to select which die to roll.
+</p>
+<p>
   0.0.6
  Fixed and issue with multiple sheets open and consuming points between the two sheets. 
 </p>
