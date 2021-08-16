@@ -32,7 +32,43 @@ export class LuckPoints {
 		});
 		if (game.user.isGM) {
 			$('.lpGmRoll-' + dndSheet.appId).on('click', async () => {
-				this.gmRoll(dndSheet);
+				let d = new Dialog({
+					title: "Die",
+					content: "<p>Please choose a die?</p>",
+					buttons: {
+						one: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d4",
+							callback: () => this.gmRoll(dndSheet, "1d4")
+						},
+						two: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d6",
+							callback: () => this.gmRoll(dndSheet, "1d6")
+						},
+						three: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d8",
+							callback: () => this.gmRoll(dndSheet, "1d8")
+						},
+						four: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d10",
+							callback: () => this.gmRoll(dndSheet, "1d10")
+						},
+						five: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d12",
+							callback: () => this.gmRoll(dndSheet, "1d12")
+						},
+						six: {
+							icon: '<i class="fas fa-dice-d20"></i>',
+							label: "d20",
+							callback: () => this.gmRoll(dndSheet, "1d20")
+						}
+					}
+				   });
+				   d.render(true);
 			});
 		}
 		$('.lpHowManyPoints-' + dndSheet.appId).keypress(async (e) => {
@@ -42,11 +78,16 @@ export class LuckPoints {
 		});
 	}
 
-	static async gmRoll(dndSheet) {
-		let roll = new Roll("1d6");
-		console.log(roll.parts);
-		roll.roll();
-		ChatMessage.create({content: `${dndSheet.entity.name} just received ${roll.total} Luck Points!`}, {chatBubble : true});
+	static async gmRoll(dndSheet, rollType) {
+		let roll = await new Roll(rollType).roll({ async: true });
+		let chatOptions = {
+			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+			roll: roll,
+			rollMode: game.settings.get("core", "rollMode"),
+			content: `${dndSheet.entity.name} received ${roll.result} Luck Points!`
+		};
+		ChatMessage.create(chatOptions);
+
 		let result = roll.total;
 		var currentPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
 
@@ -59,7 +100,7 @@ export class LuckPoints {
 		if (luckPointSettings.currentSettings.numberOfPoints > 0) {
 			$('.lpHowManyPoints-' + appId).toggle();
 		} else {
-			alert('You do not have any luck points to consume.');
+			let d = this.showDialog("No Points Available", "There are no points available points to consume");
 		}
 	}
 
@@ -67,15 +108,25 @@ export class LuckPoints {
 		let actorPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
 		let parsedValue = parseInt(target.value, 10);
 		let value = (isNaN(parsedValue) || parsedValue === "")? 0 : parsedValue;
-		if(value === 0){
-			alert('Please enter the number of points you would like to use.')
+		if (value === 0) {
+			let d = this.showDialog("Zero was entered","Please enter a number greater than zero.");
 		}
 		else if (value > actorPoints) {
-			alert('You do not have enough luck points to consume.');
+			let d = this.showDialog("Not enough points", "The amount entered is greater than the number allowed.");
 		} else {
 			let newPoints = actorPoints - value;
 			await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newPoints);
 			ChatMessage.create({content: `${dndSheet.entity.name} just consumed ${value} Luck Points! ${dndSheet.entity.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
+	}
+
+	static async showDialog(title, content){
+		return await Dialog.prompt({
+			title: title,
+			content: "<p>" + content + "</p>",
+			label: "Close",
+			callback: close => close.toggle(),
+			rejectClose: false
+		});
 	}
 }
