@@ -1,5 +1,10 @@
 <h3>Updates</h3>
 <p>
+  1.1.0
+  Change entity to object
+  Change compatability to 0.9
+</p>
+<p>
   1.0.0
   Added ability to roll with Dice-So-Nice
   Added dialog to select which die to roll.
