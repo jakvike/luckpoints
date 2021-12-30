@@ -84,7 +84,7 @@ export class LuckPoints {
 			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			roll: roll,
 			rollMode: game.settings.get("core", "rollMode"),
-			content: `${dndSheet.entity.name} received ${roll.result} Luck Points!`
+			content: `${dndSheet.object.name} received ${roll.result} Luck Points!`
 		};
 		ChatMessage.create(chatOptions);
 
