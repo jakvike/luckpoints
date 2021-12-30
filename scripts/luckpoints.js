@@ -84,7 +84,7 @@ export class LuckPoints {
 			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			roll: roll,
 			rollMode: game.settings.get("core", "rollMode"),
-			content: `${dndSheet.entity.name} received ${roll.result} Luck Points!`
+			content: `${dndSheet.object.name} received ${roll.result} Luck Points!`
 		};
 		ChatMessage.create(chatOptions);
 
@@ -116,7 +116,7 @@ export class LuckPoints {
 		} else {
 			let newPoints = actorPoints - value;
 			await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newPoints);
-			ChatMessage.create({content: `${dndSheet.entity.name} just consumed ${value} Luck Points! ${dndSheet.entity.name} has ${newPoints} left.`}, {chatBubble : true});
+			ChatMessage.create({content: `${dndSheet.object.name} just consumed ${value} Luck Points! ${dndSheet.object.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
 	}
 
