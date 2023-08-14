@@ -1,22 +1,25 @@
+import API from "./API/api";
+import CONSTANTS from "./constants/constants";
+
 export class LuckPointSettings {
 	static registerSettings() {
-		if (!CONFIG.luckPointSettings) {
+		if (!API.luckPointSettings) {
 			let luckPointsConfig = {
 				currentSettings: {
 					numberOfPoints: 0,
 				},
 				templatesPath: '/modules/luckpoints/templates',
 			};
-			CONFIG.luckPointSettings = luckPointsConfig;
+			API.luckPointSettings = luckPointsConfig;
 		}
 	}
 
 	static registerLocalizedSettings() {
-		CONFIG.luckPointSettings.localized = {
-			luckPointsTitle: game.i18n.localize('LUCKPOINTS.LuckPointsTitle'),
-			gmRollTitle: game.i18n.localize('LUCKPOINTS.GMRollTitle'),
-			playerConsumeTitle: game.i18n.localize('LUCKPOINTS.PlayerConsumeTitle'),
-			consumePlaceholder: game.i18n.localize('LUCKPOINTS.ConsumenPlaceholder')
+		API.luckPointSettings.localized = {
+			luckPointsTitle: game.i18n.localize(`${CONSTANTS.MODULE_ID}.LuckPointsTitle`),
+			gmRollTitle: game.i18n.localize(`${CONSTANTS.MODULE_ID}.GMRollTitle`),
+			playerConsumeTitle: game.i18n.localize(`${CONSTANTS.MODULE_ID}.PlayerConsumeTitle`),
+			consumePlaceholder: game.i18n.localize(`${CONSTANTS.MODULE_ID}.ConsumenPlaceholder`)
 		};
 	}
 }

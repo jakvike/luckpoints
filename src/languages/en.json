@@ -1,6 +1,6 @@
 {
-    "LUCKPOINTS.LuckPointsTitle":"Luck Points",
-    "LUCKPOINTS.GMRollTitle":"1d6 GM Roll to add Luck Points",
-    "LUCKPOINTS.PlayerConsumeTitle":"Open to consume Luck Points.",
-    "LUCKPOINTS.ConsumenPlaceholder": "Spend your luck points?"
+    "luckpoints-dnd5e.LuckPointsTitle":"Luck Points",
+    "luckpoints-dnd5e.GMRollTitle":"1d6 GM Roll to add Luck Points",
+    "luckpoints-dnd5e.PlayerConsumeTitle":"Open to consume Luck Points.",
+    "luckpoints-dnd5e.ConsumenPlaceholder": "Spend your luck points?"
 }

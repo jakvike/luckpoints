@@ -17,7 +17,7 @@ import { run } from 'vite-plugin-run'
 
 // For convenience, you just need to modify the package ID below as it is used to fill in default proxy settings for
 // the dev server.
-const s_MODULE_ID = "variant-encumbrance-dnd5e";
+const s_MODULE_ID = "luckpoints-dnd5e";
 const s_PACKAGE_ID = "modules/"+s_MODULE_ID;
 const s_ENTRY_JAVASCRIPT = "module.js";
 

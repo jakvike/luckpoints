@@ -1,7 +1,9 @@
+import API from "./API/api";
+
 export class LuckPoints {
 	static async onRenderActorSheet(dndSheet, html) {
-		let luckPointSettings = CONFIG.luckPointSettings;
-		let actorPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
+		let luckPointSettings = API.luckPointSettings;
+		let actorPoints = dndSheet.object.getFlag(CONSTANTS.MODULE_ID, 'currentLuckPoints');
 		luckPointSettings.currentSettings.numberOfPoints = actorPoints === undefined ? 0 : actorPoints;		
 		
 		let sheet = dndSheet.constructor.name;
@@ -89,14 +91,14 @@ export class LuckPoints {
 		ChatMessage.create(chatOptions);
 
 		let result = roll.total;
-		var currentPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
+		var currentPoints = dndSheet.object.getFlag(CONSTANTS.MODULE_ID, 'currentLuckPoints');
 
 		let newResult = result + (currentPoints === undefined ? 0 : currentPoints);
-		await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newResult);
+		await dndSheet.object.setFlag(CONSTANTS.MODULE_ID, 'currentLuckPoints', newResult);
 	}
 
 	static openConsumeInput(appId) {
-		let luckPointSettings = CONFIG.luckPointSettings;
+		let luckPointSettings = API.luckPointSettings;
 		if (luckPointSettings.currentSettings.numberOfPoints > 0) {
 			$('.lpHowManyPoints-' + appId).toggle();
 		} else {
@@ -105,7 +107,7 @@ export class LuckPoints {
 	}
 
 	static async consumeLuckPoints(target, dndSheet) {
-		let actorPoints = dndSheet.object.getFlag('luckpoints', 'currentLuckPoints');
+		let actorPoints = dndSheet.object.getFlag(CONSTANTS.MODULE_ID, 'currentLuckPoints');
 		let parsedValue = parseInt(target.value, 10);
 		let value = (isNaN(parsedValue) || parsedValue === "")? 0 : parsedValue;
 		if (value === 0) {
@@ -115,7 +117,7 @@ export class LuckPoints {
 			let d = this.showDialog("Not enough points", "The amount entered is greater than the number allowed.");
 		} else {
 			let newPoints = actorPoints - value;
-			await dndSheet.object.setFlag('luckpoints', 'currentLuckPoints', newPoints);
+			await dndSheet.object.setFlag(CONSTANTS.MODULE_ID, 'currentLuckPoints', newPoints);
 			ChatMessage.create({content: `${dndSheet.object.name} just consumed ${value} Luck Points! ${dndSheet.object.name} has ${newPoints} left.`}, {chatBubble : true});
 		}
 	}
