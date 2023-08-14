@@ -13,18 +13,16 @@
 
 // Import TypeScript modules
 import { registerSettings } from "./scripts/settings.js";
-import { initHooks, readyHooks, setupHooks } from "./scripts/modules.js";
-import CONSTANTS from "./scripts/constants.js";
+import { initHooks, readyHooks, setupHooks } from "./scripts/main.js";
+import CONSTANTS from "./scripts/constants/constants.js";
 import { error } from "./scripts/lib/lib.js";
-import API from "./scripts/api.js";
+import API from "./scripts/API/api.js";
 import { LuckPointSettings } from "./scripts/settings";
 
 /* ------------------------------------ */
 /* Initialize module					*/
 /* ------------------------------------ */
 Hooks.once("init", async () => {
-  // console.log(`${CONSTANTS.MODULE_NAME} | Initializing ${CONSTANTS.MODULE_NAME}`);
-
   // Register custom module settings
   // registerSettings();
   LuckPointSettings.registerSettings();

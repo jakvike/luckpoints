@@ -1,29 +1,29 @@
-.luck-points {
+.luckpoints-dnd5e {
   margin-top: 5px;
   border: 1px solid var(--default-faint-color);
 }
 
-.luck-points > .luck-points-row {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row {
   margin-left: 5px;
 }
-.luck-points > .luck-points-row > .luck-points-action-items {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items {
   text-align: right;
   font-size: 15px;
 }
 
-.luck-points > .luck-points-row > .luck-points-action-items > .item-image {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .item-image {
   margin-right: 0.5em;
 }
 
-.luck-points > .luck-points-row > .luck-points-action-items > .luck-points-input {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .luckpoints-dnd5e-input {
   margin-bottom: 5px;
 }
 
-.luck-points > .luck-points-row > .number-luck-points {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .number-luckpoints-dnd5e {
   font-size: 18px;
 }
 
-.luck-points > .luck-points-title {
+.luckpoints-dnd5e > .luckpoints-dnd5e-title {
   margin-left: 5px;
   flex: auto;
   font-size: 13px;
@@ -31,10 +31,10 @@
   color: #4b4a44;
   font-family: "Signika", sans-serif;
 }
-.luck-points > .luck-points-row > .luck-points-action-items > .luck-points-input > .hidden {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .luckpoints-dnd5e-input > .hidden {
   display: none;
 }
 
-.luck-points > .luck-points-row > .luck-points-action-items > .hidden {
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .hidden {
   display: none;
 }

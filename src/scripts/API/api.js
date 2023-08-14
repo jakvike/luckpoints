@@ -1,4 +1,4 @@
-import CONSTANTS from "./constants.mjs";
+import CONSTANTS from "../constants/constants.js";
 
 const API = {
   // TODO

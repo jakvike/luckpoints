@@ -1,11 +1,11 @@
 <hr>
-<div class="luck-points">
-	<h3 class="luck-points-title">{{localized.luckPointsTitle}}</h3>
-	<div class="luck-points-row flexrow">
-		<span class="number-luck-points">
+<div class="luckpoints-dnd5e">
+	<h3 class="luckpoints-dnd5e-title">{{localized.luckPointsTitle}}</h3>
+	<div class="luckpoints-dnd5e-row flexrow">
+		<span class="number-luckpoints-dnd5e">
 			<label id="lp-numberOfLuckPoints">{{currentSettings.numberOfPoints}}</label>
 		</span>
-		<span class="luck-points-action-items">
+		<span class="luckpoints-dnd5e-action-items">
 			<a
 				id="lp-gmRoll"
 				class="lpGmRoll-{{currentSettings.actorAppId}} item-image rollable{{#if currentSettings.isGM}}{{else}} hidden {{/if}} "
@@ -16,10 +16,10 @@
 			<a id="lp-openConsume" class="lpOpenConsume-{{currentSettings.actorAppId}} item-image" title="{{localized.playerConsumeTitle}}">
 				<i class="fa fa-bell"></i>
 			</a>
-			<div class="luck-points-input">
+			<div class="luckpoints-dnd5e-input">
 				<input
 					id="lp-howManyPoints"
-					class="lpHowManyPoints-{{currentSettings.actorAppId}} luck-points-consume hidden"
+					class="lpHowManyPoints-{{currentSettings.actorAppId}} luckpoints-dnd5e-consume hidden"
 					placeholder="{{localized.consumePlaceholder}}"
 					type="text"
 					data-dtype="Number"
