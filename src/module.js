@@ -63,7 +63,7 @@ Hooks.once("ready", () => {
  * @param api to set to game module.
  */
 export function setApi(api) {
-  const data = game.modules.get(CONSTANTS.MODULE_NAME);
+  const data = game.modules.get(CONSTANTS.MODULE_ID);
   data.api = api;
 }
 
@@ -72,7 +72,7 @@ export function setApi(api) {
  * @returns Api from games module.
  */
 export function getApi() {
-  const data = game.modules.get(CONSTANTS.MODULE_NAME);
+  const data = game.modules.get(CONSTANTS.MODULE_ID);
   return data.api;
 }
 
@@ -81,7 +81,7 @@ export function getApi() {
  * @param socket to set to game module.
  */
 export function setSocket(socket) {
-  const data = game.modules.get(CONSTANTS.MODULE_NAME);
+  const data = game.modules.get(CONSTANTS.MODULE_ID);
   data.socket = socket;
 }
 
@@ -90,6 +90,6 @@ export function setSocket(socket) {
  * @returns Socket from games module.
  */
 export function getSocket() {
-  const data = game.modules.get(CONSTANTS.MODULE_NAME);
+  const data = game.modules.get(CONSTANTS.MODULE_ID);
   return data.socket;
 }

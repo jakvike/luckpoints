@@ -16,7 +16,28 @@
 
 ### If you want to buy me a coffee [![alt-text](https://img.shields.io/badge/-Patreon-%23ff424d?style=for-the-badge)](https://www.patreon.com/p4535992)
 
+This is a upgrade of the module [luckpoints](https://github.com/jakvike/luckpoints) ty to [jakvike](https://github.com/jakvike).
 
+## Module Description
+
+The module intends to add a variation to inspiration Instead of having inspiration, I added luck points
+
+Luck points will be below resources, on the attributes tab, within the actor sheet
+
+For my campaign, the intent for Luck Points is as follows:
+
+- A player can hoard as many luck points they choose<
+- A player can use a luck point to increase or decrease a die roll result For instance, the player rolls a d20 attack and spends 2 luck points The roll from the d20 is 16 + the luck points equal 18.
+- A player can choose to use luck points to help another player but at double the cost. For instance, player B rolls 14, Player A spends 4 luck points Player Bs roll now becomes 16
+- A player can choose to use luck points to decrease the GMs roll but at double the cost. For instance, GM rolls 14, Player A spends 6 luck points. GM roll now becomes 11.
+
+GM has permission to the die (d6)
+
+Players click the bell to consume luck point(s). After clicking the bell, an input box will open beneath the buttons After entering the number of points to consume, hit the enter key on your keyboard
+
+Both the GM roll and Player consumption will send a chat message
+
+**NOTE:** This has only been tested and used with Tidy5eSheet and the default actor sheet, with DND5e.
 
 ## Installation
 

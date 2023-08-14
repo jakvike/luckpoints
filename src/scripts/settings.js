@@ -12,6 +12,14 @@ export class LuckPointSettings {
       };
       API.luckPointSettings = luckPointsConfig;
     }
+    if (!API.luckPointSettings.currentSettings) {
+      API.luckPointSettings.currentSettings = {
+        numberOfPoints: 0,
+      };
+    }
+    if (!API.luckPointSettings.templatesPath) {
+      API.luckPointSettings.templatesPath = `/modules/${CONSTANTS.MODULE_ID}/templates`;
+    }
   }
 
   static registerLocalizedSettings() {

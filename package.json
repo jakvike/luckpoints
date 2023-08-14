@@ -2,7 +2,7 @@
 	"id": "luckpoints-dnd5e",
 	"title": "Luck Points (Dnd5e)",
 	"description": "An alternative to inspiration. The intent of the module is to give your players luck points for playing their character. They can hoard as many luck points as they want.",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"main": "module.js",
 	"license": "SEE LICENSE IN LICENSE",
 	"private": true,
