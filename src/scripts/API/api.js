@@ -2,7 +2,7 @@ import CONSTANTS from "./constants.mjs";
 
 const API = {
   // TODO
-  luckPointSettings: {}
+  luckPointSettings: {},
 };
 
 export default API;

@@ -4,7 +4,7 @@ const SETTINGS = {
   // Client settings
 
   // Module Settings
-  
+
   debug: "debug",
 
   // Style settings

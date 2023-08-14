@@ -30,7 +30,6 @@ Hooks.once("init", async () => {
   LuckPointSettings.registerSettings();
   initHooks();
   // Assign custom classes and constants here
-  
 });
 
 /* ------------------------------------ */
@@ -57,7 +56,6 @@ Hooks.once("ready", () => {
   // }
   LuckPointSettings.registerLocalizedSettings();
   readyHooks();
-  
 });
 
 // Add any additional hooks if necessary

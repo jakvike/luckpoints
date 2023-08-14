@@ -13,9 +13,7 @@ export const setupHooks = async () => {
 };
 
 export const readyHooks = () => {
-
-	Hooks.on('renderActorSheet', function (dndSheet, html) {
-		LuckPoints.onRenderActorSheet(dndSheet, html);
-	});
+  Hooks.on("renderActorSheet", function (dndSheet, html) {
+    LuckPoints.onRenderActorSheet(dndSheet, html);
+  });
 };
-
