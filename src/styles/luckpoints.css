@@ -1,0 +1,40 @@
+.luckpoints-dnd5e {
+  margin-top: 5px;
+  border: 1px solid var(--default-faint-color);
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-row {
+  margin-left: 5px;
+}
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items {
+  text-align: right;
+  font-size: 15px;
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .item-image {
+  margin-right: 0.5em;
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .luckpoints-dnd5e-input {
+  margin-bottom: 5px;
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .number-luckpoints-dnd5e {
+  font-size: 18px;
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-title {
+  margin-left: 5px;
+  flex: auto;
+  font-size: 13px;
+  font-weight: bold;
+  color: #4b4a44;
+  font-family: "Signika", sans-serif;
+}
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .luckpoints-dnd5e-input > .hidden {
+  display: none;
+}
+
+.luckpoints-dnd5e > .luckpoints-dnd5e-row > .luckpoints-dnd5e-action-items > .hidden {
+  display: none;
+}

@@ -1,0 +1,97 @@
+{
+  "id": "luckpoints-dnd5e",
+  "title": "Luck Points (Dnd5e)",
+  "description": "An alternative to inspiration. The intent of the module is to give your players luck points for playing their character. They can hoard as many luck points as they want.",
+  "version": "1.2.1",
+  "authors": [
+    { "name": "jakvike" },
+    {
+      "name": "p4535992",
+      "url": "https://github.com/p4535992",
+      "discord": "",
+      "twitter": "",
+      "patreon": "",
+      "github": "p4535992",
+      "ko-fi": "",
+      "reddit": "",
+      "email": ""
+    }
+  ],
+  "type": "module",
+  "socket": true,
+  "includes": [
+    "./assets/**",
+    "./lang/**",
+    "./languages/**",
+    "./scripts/**",
+    "./styles/**",
+    "./templates/**",
+    "./module.json",
+    "./README.md",
+    "./icons/**",
+    "./packs/**"
+  ],
+  "media": [
+    {
+      "type": "icon",
+      "location": ""
+    },
+    {
+      "type": "cover",
+      "location": ""
+    },
+    {
+      "type": "screenshot",
+      "location": ""
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "esmodules": ["module.js"],
+  "styles": ["styles/luckpoints.css"],
+  "compatibility": {
+    "minimum": 11,
+    "verified": 11,
+    "maximum": 11
+  },
+  "url": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e",
+  "manifest": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e/releases/download/v1.2.1/module.json",
+  "download": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e/releases/download/v1.2.1/module.zip",
+  "readme": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e/blob/v1.2.1/README.md",
+  "changelog": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e/blob/v1.2.1/changelog.md",
+  "bugs": "https://github.com/p4535992/foundryvtt-luckpoints-dnd5e/issues",
+  "allowBugReporter": true,
+  "manifestPlusVersion": "1.2.1",
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
+        "compatibility": {
+          "verified": "2.2.1"
+        }
+      },
+      {
+        "id": "sw5e",
+        "type": "system",
+        "manifest": "https://raw.githubusercontent.com/unrealkakeman89/sw5e/master/system.json",
+        "compatibility": {}
+      }
+    ],
+    "requires": [
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "manifest": "https://github.com/ruipin/fvtt-lib-wrapper/releases/latest/download/module.json",
+        "compatibility": {}
+      }
+    ],
+    "conflicts": []
+  }
+}
